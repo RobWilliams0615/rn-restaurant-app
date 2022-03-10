@@ -6,8 +6,6 @@ const ResultsShowScreen = ({ navigation }) => {
   const [result, setResult] = useState(null);
   const id = navigation.getParam('id');
 
-  console.log(result);
-
   const getResult = async (id) => {
     const response = await yelp.get(`/${id}`);
     setResult(response.data);
@@ -21,8 +19,8 @@ const ResultsShowScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Text>{result.name}</Text>
+    <View style={styles.conatiner}>
+      <Text style={styles.header}>{result.name}</Text>
       <FlatList
         data={result.photos}
         keyExtractor={(photo) => photo}
@@ -39,9 +37,19 @@ const ResultsShowScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  header: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  conatiner: {
+    marginLeft: 15
+  },
   image: {
-    height: 200,
-    width: 300
+    height: 100,
+    width: 200,
+    borderRadius: 4,
+    marginBottom: 5
   }
 });
 
