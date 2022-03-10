@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return (
-    <View style={styles.backgroundStyle}>
+    <View accessible={true} style={styles.backgroundStyle}>
       <Feather name="search" style={styles.iconStyle} />
       <TextInput
         style={styles.inputStyle}

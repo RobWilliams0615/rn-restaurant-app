@@ -14,7 +14,7 @@ const ResultsList = ({ title, results, navigation }) => {
     return null;
   }
   return (
-    <View style={styles.conatiner}>
+    <View accessible={true} style={styles.conatiner}>
       <Text style={styles.title}>{title}</Text>
       <FlatList
         showsHorizontalScrollIndicator={false}
@@ -24,6 +24,8 @@ const ResultsList = ({ title, results, navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
+              accessibilityLabel="Tap me!"
+              accessibilityHint="Navigates to location details"
               onPress={() =>
                 navigation.navigate('ResultsShow', { id: item.id })
               }
